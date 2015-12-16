@@ -7,14 +7,16 @@ var endData = "";
 var count = 0;
 
 urlArr.forEach(function(url){
+	var data = "";
 	http.get(url, function(response){
 		response.setEncoding('utf8');
 		response.on('data', function(chunk){
-			endData+=chunk;
+			data+=chunk;
 		});
 		response.on('end', function(){
 			count++;
-			endData+='\n';
+			data+='\n';
+			endData+=data;
 
 			if (count === urlArr.length){
 				console.log(endData);
