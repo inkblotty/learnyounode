@@ -10,7 +10,7 @@ var server = http.createServer(function(req, res){
 	var outStream;
 
 	res.pipe(map(function(chunk){
-		chunk.toString().uppercase();
+		chunk.toString().uppercase()
 	})).pipe(outStream);
 });
 
